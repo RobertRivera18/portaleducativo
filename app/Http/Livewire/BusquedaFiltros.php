@@ -20,16 +20,24 @@ class BusquedaFiltros extends Component
         $categories = Category::all();
         $levels = Level::all();
         $posts = Post::where('status', 3)
-            ->where('tipo_recurso_id', 1)
-            ->category($this->category_id)
-            ->level($this->level_id)
-            ->paginate(8);
+                       ->category($this->category_id)
+                       ->latest('id')
+                       ->level($this->level_id)
+                       ->paginate(8);
         return view('livewire.busqueda-filtros', compact('categories', 'levels', 'posts'));
     }
     
     public function getResultsProperty(){
         return Post::where('name','LIKE','%'.$this->search.'%')
-        ->where('tipo_recurso_id',1)
-        ->where('status',3)->take(4)->get();
+                  ->where('status',3)->take(4)->get();
+        
     }
+
+    public function resetFilters()
+    {
+        $this-> reset(['category_id','level_id']);
+    }
+
+    
+
 }

@@ -2,8 +2,9 @@
 
 namespace Database\Factories;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\Category;
 use Illuminate\Support\Str;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Category>
@@ -24,5 +25,18 @@ class CategoryFactory extends Factory
             'slug'=>Str::slug($name),
             'type' => $this->faker->numberBetween(1, 2),
         ];
+
+        Category::create([
+            'name'=>'Gamificación',
+            'slug' => Str::slug('Gamificación'),
+            'type'=> 2
+
+        ]);
+        Category::create([
+            'name'=>'Plataformas de Interacción',
+            'slug' => Str::slug('Plataformas de Interacción'),
+            'type'=> 2
+
+        ]);
     }
 }

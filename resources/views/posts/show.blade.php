@@ -11,8 +11,10 @@
             </a>
             @endforeach
         </div>
-
-
+       
+        <div class="text-base text-gray-500 mb-2 text-justify" id="#extract">
+            {!!$post->extract!!}
+        </div>
         <ul class="flex items-center text-sm mb-3 ">
             <p class="ml-2 mr-2 font-bold text-base">Calificacion del Recurso Educativo:
                 <li class="mr-1"><i class="fas fa-star text-{{$post->rating>=1 ? 'yellow': 'gray'}}-400"></i></li>
@@ -24,15 +26,11 @@
                 Calificación Promedio)</a>
         </ul>
 
-        <div class="text-base text-gray-500 mb-2 text-justify">
-            {!!$post->extract!!}
-
-        </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
             {{-- Contenido Principal --}}
             <div class="lg:col-span-2">
-                <figure class="bg-yellow-400 rounded-lg overflow-hidden">
+                <figure class="rounded-lg overflow-hidden">
                     @if($post->image)
                     <img class="aspect-[16/9] w-full object-cover object-center"
                         src="{{Storage::url($post->image->url)}}" alt="">
@@ -51,12 +49,7 @@
                     <ul class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-2">
                         @forelse($post->goals as $goal)
                         <li class=" flex text-gray-900 text-sm">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor" class="w-10 h-10">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z">
-                                </path>
-                            </svg>
+                            <i class="fa fa-flag mr-2"></i>
                             {{$goal->name}}
                         </li>
                         @empty
@@ -85,10 +78,7 @@
                     <p class="text-justify">{!!$post->body!!}</p>
                 </div>
 
-               
-
                 @livewire('reviews-post',['post'=>$post])
-
                 @livewire('question',['model'=>$post])
             </div>
             {{-- Contenido Relacionado --}}

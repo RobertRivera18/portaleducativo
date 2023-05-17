@@ -10,7 +10,6 @@ class IndexController extends Controller
     public function index()
     {
         $ultimosposts = Post::where('status', 3)
-            ->where('tipo_recurso_id', 1)
             ->latest('id')->get()->take(12);
 
         $posts = Post::where('status', 3)->where('tipo_recurso_id', 1)->paginate(5);

@@ -27,9 +27,10 @@ class DatabaseSeeder extends Seeder
         $this->call(UserSeeder::class);
         $this->call(LevelSeeder::class);
         $this->call(TipoRecursoSeeder::class);
-        Category::factory(5)->create();      
+        $this->call(CategorySeeder::class);      
         Tag::factory(8)->create();
         $this->call(PostSeeder::class);
+       
        
     }
 }

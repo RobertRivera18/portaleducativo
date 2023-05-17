@@ -1,4 +1,4 @@
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+<div class="max-w-9xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
     <x-table-responsive>
         <div class="px-6 py-4 flex">
             <input wire:keydown="limpiar_page" wire:model="search"
@@ -129,7 +129,7 @@
     </x-table-responsive>
 </div>
 
-@section('js')
+{{-- @section('js')
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 @if(session('eliminar')=='ok')
@@ -140,8 +140,6 @@
                     , 'success'
                 )
 </script>
-
-
 
 @endif
 <script>
@@ -164,4 +162,4 @@
         })
     })
 
-</script>
+</script> --}}

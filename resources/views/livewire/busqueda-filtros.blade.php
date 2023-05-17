@@ -24,7 +24,7 @@
                     @endforeach
 
                 </div>
-               
+
                 <div class="mb-4">
                     <p class="text-lg font-semibold">Niveles</p>
                     @foreach($levels as $level)
@@ -52,8 +52,8 @@
                 <div>
                     <button type="submit"
                         class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring focus:ring-gray-300 disabled:opacity-25 transition"
-                        x-on:click="apply_filters">
-                        Aplicar filtros
+                        wire:click="resetFilters">
+                        Eliminar filtros
                     </button>
                 </div>
 
@@ -96,8 +96,10 @@
                                     <h3 class="text-lg mb-1 leading-5">
                                         {{$post->name}}
                                     </h3>
-                                    <p class="text-sm text-gray-600">{{$post->extract}}</p>
-                                    <p class="text-gray-500 text-sm mb-1 font-bold">{{$post->user->name}}</p>
+
+                                    <p class="text-sm text-gray-600 text-justify">{{
+                                        Str::limit(strip_tags($post->extract), 400) }}</p>
+                                    <p class="text-gray-500 text-sm mb-1 font-bold">Autor: {{$post->user->name}}</p>
                                     <div class="flex items-center mb-1">
                                         <ul class="flex items-center space-x-1 text-xs">
                                             <li class="mr-1"><i
@@ -128,6 +130,7 @@
                         </a>
 
                     </li>
+                    <hr class="mb-2 border-1 border-gray-400">
                     @endforeach
                 </ul>
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-4 mb-8">

@@ -32,7 +32,7 @@ class Post extends Model
         if ($this->reviews_count) {
             return round($this->reviews->avg('rating'), 2);
         } else {
-            return "No tiene valoración aun";
+            return 1;
         }
     }
 

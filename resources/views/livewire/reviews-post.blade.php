@@ -53,15 +53,15 @@
                             <li>
                                 <i class="fas fa-star text-yellow-400"></i>
                             </li>
-                        </ul> 
+                        </ul>
 
                         @if ($post->reviews->count() > 0)
-                            <span class="w-16">
-                                {{($ratingsCount[5]*100)/$post->reviews->count()}}%
-                            </span>
-                            @else
-                            0%
-                            @endif
+                        <span class="w-16">
+                            {{($ratingsCount[5]*100)/$post->reviews->count()}}%
+                        </span>
+                        @else
+                        0%
+                        @endif
                     </li>
                     <li class="flex items-center">
                         <div class="relative pt-1 flex-1">
@@ -91,14 +91,14 @@
 
                         </ul>
 
-                            @if ($post->reviews->count() > 0)
-                            <span class="w-16">
-                                {{($ratingsCount[4]*100)/$post->reviews->count()}}%
-                            </span>
-                            @else
-                            0%
-                            @endif
-                         
+                        @if ($post->reviews->count() > 0)
+                        <span class="w-16">
+                            {{($ratingsCount[4]*100)/$post->reviews->count()}}%
+                        </span>
+                        @else
+                        0%
+                        @endif
+
                     </li>
                     <li class="flex items-center">
                         <div class="relative pt-1 flex-1">
@@ -125,15 +125,14 @@
                             <li>
                                 <i class="fas fa-star text-gray-600"></i>
                             </li>
-                        </ul> 
-
+                        </ul>
                         @if ($post->reviews->count() > 0)
-                            <span class="w-16">
-                                {{($ratingsCount[3]*100)/$post->reviews->count()}}%
-                            </span>
-                            @else
-                            0%
-                            @endif
+                        <span class="w-16">
+                            {{($ratingsCount[3]*100)/$post->reviews->count()}}%
+                        </span>
+                        @else
+                        0%
+                        @endif
                     </li>
                     <li class="flex items-center">
                         <div class="relative pt-1 flex-1">
@@ -160,15 +159,15 @@
                             <li>
                                 <i class="fas fa-star text-gray-600"></i>
                             </li>
-                        </ul> 
+                        </ul>
 
                         @if ($post->reviews->count() > 0)
-                            <span class="w-16">
-                                {{($ratingsCount[2]*100)/$post->reviews->count()}}%
-                            </span>
-                            @else
-                            0%
-                            @endif
+                        <span class="w-16">
+                            {{($ratingsCount[2]*100)/$post->reviews->count()}}%
+                        </span>
+                        @else
+                        0%
+                        @endif
                     </li>
                     <li class="flex items-center">
                         <div class="relative pt-1 flex-1">
@@ -195,15 +194,15 @@
                             <li>
                                 <i class="fas fa-star text-gray-600"></i>
                             </li>
-                        </ul> 
+                        </ul>
 
                         @if ($post->reviews->count() > 0)
-                            <span class="w-16">
-                                {{($ratingsCount[1]*100)/$post->reviews->count()}}%
-                            </span>
-                            @else
-                            0%
-                            @endif
+                        <span class="w-16">
+                            {{($ratingsCount[1]*100)/$post->reviews->count()}}%
+                        </span>
+                        @else
+                        0%
+                        @endif
                     </li>
 
                 </ul>

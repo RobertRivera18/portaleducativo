@@ -1,7 +1,7 @@
 <div>
     <div class="bg-gray-200 py-4 mb-8">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex">
-            <button class=" focus-outline-none bg-white shadow h-11 px-4 rounded-lg text-gray-700 mr-4"
+            <button class="md:text-xs focus-outline-none bg-white shadow h-11 px-4 rounded-lg text-gray-700 mr-4"
                 wire:click="resetFilters">Todos los Post
                 <i class="fas fa-archway text-xs mr-2"></i>
             </button>
@@ -64,7 +64,7 @@
                     @foreach($example->tags as $tag )
                     <a href="{{route('posts.tag',$tag)}}">
                         <span
-                            class="bg-indigo-100 text-indigo-800 text-sm font-semibold mr-2 px-2.5 py-0.5 rounded">
+                            class="bg-indigo-100 text-indigo-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded border-indigo-400">
                             {{$tag->name}}
                         </span>
                     </a>
@@ -72,7 +72,7 @@
                 </div>
                 <p class="text-gray-500 text-sm mb-1 mt-auto">Prof:{{$example->user->name}}</p>
 
-                <ul class="flex text-sm mb-3">
+                <ul class="flex text-sm mb-3 justify-center">
                     <li class="mr-1"><i class="fas fa-star text-{{$example->rating>=1 ? 'yellow': 'gray'}}-400"></i>
                     </li>
                     <li class="mr-1"><i class="fas fa-star text-{{$example->rating>=2 ? 'yellow': 'gray'}}-400"></i>

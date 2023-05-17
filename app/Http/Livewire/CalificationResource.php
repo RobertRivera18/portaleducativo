@@ -10,17 +10,27 @@ class CalificationResource extends Component
 
     
     public $post_id, $comment;
-    public $rating = 0;
+    public $ratings = [
+        'pregunta1' => 0,
+        'pregunta2' => 0,
+        'pregunta3' => 0,
+    ];
     public $open = false;
-    protected $rules=[
-        'rating'=>'required',
-        'comment'=>'required'
+    protected $rules = [
+        'ratings.pregunta1' => 'required',
+        'ratings.pregunta2' => 'required',
+        'comment' => 'required',
     ];
 
     public function mount(Post $post)
     {
         $this->post_id = $post->id;
     }
+
+    protected $validationAttributes = [
+        'comment' => 'comentario'
+    ];
+
     public function render()
     {
         $post = Post::find($this->post_id);
@@ -31,14 +41,13 @@ class CalificationResource extends Component
     {
         $this->validate();
         $post = Post::find($this->post_id);
+        $rating = ($this->ratings['pregunta1'] + $this->ratings['pregunta2']+ $this->ratings['pregunta2']) / 3;
         $post->reviews()->create([
             'comment' => $this->comment,
-            'rating' => $this->rating,
-            'user_id' => auth()->user()->id
+            'rating' => $rating,
+            'user_id' => auth()->user()->id,
         ]);
-        $this->reset(['open','comment','rating']);
+        $this->reset(['open', 'comment', 'ratings']);
         $this->emit('render');
-        }
-
-    
+    }
 }

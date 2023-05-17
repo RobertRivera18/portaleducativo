@@ -9,7 +9,7 @@
             @if($search)
             <ul class="absolute left-0 w-full bg-white mt-1 rounded-lg overflow-hidden">
                 @forelse($this->results as $result)
-                <li class="leading-10 px-5 text-sm cursor-pointer hover:bg-gray-300">
+                <li class="leading-8 px-5 text-sm cursor-pointer hover:bg-gray-300">
                     <a href="{{route('posts.show',$result)}}">{{$result->name}}</a>
                 </li>
                 @empty

@@ -55,11 +55,11 @@
 
 </div>
 
-<div class="grid grid-cols-2 gap-4 mb-2">
+<div class="grid lg:grid-cols-2 gap-4 mb-2">
     <div class="form group">
         <p class="font-bold">Etiquetas</p>
         @foreach ($tags as $tag)
-        <label class="mr-2">
+        <label class="mr-1">
             {!! Form::checkbox('tags[]', $tag->id, null, ['class' => 'rounded-full']) !!}
             {{$tag->name}}
         </label>
@@ -91,7 +91,7 @@
 
 
 <h1 class="mt-8 mb-2 text-lg font-bold">Imagen del Post</h1>
-<div class="grid grid-cols-2 gap-4">
+<div class="grid lg:grid-cols-2 grid-cols-1 gap-4">
     <figure>
         @isset($post->image)
         <img id="picture" class="w-full h-64 object-cover object-center" src="{{ Storage::url($post->image->url) }}" alt="">
@@ -100,9 +100,7 @@
         @endisset
     </figure>
     <div>
-        <p class="mb-2">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum
-            consequatur
-            neque enim ex illo sint atque</p>
+        <p class="mb-2">Ingrese una imagen para el post, está servirá de portada para el recurso.</p>
         {!! Form::file('file', ['class' => 'form-input w-full rounded-lg'.($errors->has('file')?'
         border-red-600':''),'id'=>'file','accept'=>'image/*']) !!}
         @error('file')

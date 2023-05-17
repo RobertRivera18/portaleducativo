@@ -4,7 +4,7 @@
     <figure>
         <a href="{{route('posts.show',$post)}}">
             @if ($post->image)
-            <img class="aspect-[16/9] w-full object-cover object-center rounded-md"
+            <img class="aspect-[16/9] w-full object-cover object-center rounded-lg"
                 src="{{Storage::url($post->image->url)}}">
                 @else
                 <img class="aspect-[16/9] w-full object-cover object-center" src="https://cdn.pixabay.com/photo/2022/06/22/10/47/cheetah-7277665_960_720.jpg" alt="">
@@ -46,8 +46,8 @@
             <li class="mr-1"><i class="fas fa-star text-{{$post->rating>=4 ? 'yellow': 'gray'}}-400"></i></li>
             <li class="mr-1"><i class="fas fa-star text-{{$post->rating==5 ? 'yellow': 'gray'}}-400"></i></li>
         </ul>
-        <p class="italic">{{Str::limit($post->extract ,100)}}</p>
-        <p class="text-justify">{{Str::limit($post->body ,400)}}</p>
+        <p class="italic">{{ Str::limit(strip_tags($post->extract), 100) }}</p>
+        <p class="text-justify">{{ Str::limit(strip_tags($post->body), 400) }}</p>
         
         <div class="mt-4 flex justify-between items-center">
             <a href="{{route('posts.show',$post)}}"

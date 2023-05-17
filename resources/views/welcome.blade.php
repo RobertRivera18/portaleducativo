@@ -1,5 +1,5 @@
 <x-app-layout>
-    <div class="px-4 py-4 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+    <div class="px-4 py-2 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-4">
         <div class="flex flex-col items-center justify-between w-full mb-10 lg:flex-row">
             <div class="mb-8 lg:mb-0 lg:max-w-lg lg:pr-5">
                 <div class="max-w-xl mb-2">
@@ -29,14 +29,14 @@
         </div>
     </div>
     <section class="mt-2">
-        <h1 class="text-gray-600 text-center text-3xl mb-6">CONTENIDO</h1>
+        <h1 class="text-gray-600 text-center text-2xl mb-6">¿Que encontrarás aqui?</h1>
         <div
             class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-8">
             <article>
                 <figure>
                     <img class="rounded-xl h-36 w-full object-cover" src="{{asset('img/home/metodologia.jpg')}}" alt="">
                 </figure>
-                <header class="mt-2">
+                <header class="mt-2 p-4">
                     <h1 class="text-center text-gray-700">
                         Recursos Educativos para Docentes
                     </h1>
@@ -89,7 +89,7 @@
             </article>
         </div>
     </section>
-    <section class="bg-gray-100 dark:bg-gray-900 lg:py-12 lg:flex lg:justify-center mt-7">
+    <section class="bg-gray-100 dark:bg-gray-900 lg:py-8 lg:flex lg:justify-center mb-7">
         <div class="bg-white dark:bg-gray-800 lg:mx-8 lg:flex lg:max-w-5xl lg:shadow-lg lg:rounded-lg">
             <div class="lg:w-1/2">
                 <div class="h-64 bg-cover lg:rounded-lg lg:h-full"
@@ -118,7 +118,7 @@
     </section>
 
 
-    <section class="w-full bg-gray-400 bg-center bg-cover bg-blend-multiply mb-24"
+    <section class="w-full bg-gray-400 bg-center bg-cover bg-blend-multiply mt-10"
         style="background-image: url('https://codersfree.com/img/home/aprende-programar.jpg');">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 flex flex-col flex-wrap content-center justify-center p-20">
             <h1 class="text-center text-white text-3xl">¿No sabes como hacer tus clases más interactivas?</h1>
@@ -131,7 +131,7 @@
             </div>
     </section>
 
-    <section class="mt-20">
+    <section class="mt-20 bg-gray-200 py-5">
         <h1 class="text-center text-gar-600 text-3xl">Últimos Post Educativos</h1>
         <p class="text-center text-gray-500 text-sm mb-6">Aqui encontrar todo recurso educativo que mejore el
             proceso
@@ -143,14 +143,14 @@
                     @foreach($ultimosposts as $example )
                     <article class=" mt-5 bg-white rounded-lg overflow-hidden mr-5">
                         @if($example->image)
-                        <img class="bg-sky-900 h-36 w-full object-cover" src="{{Storage::url($example->image->url)}}"
+                        <img class="h-36 w-full object-cover bg-center" src="{{Storage::url($example->image->url)}}"
                             alt="">
                         @else
-                        <img class="bg-sky-900 h-36 w-full object-cover" src="{{asset('img/home/imagenDefault.jpeg')}}"
+                        <img class="h-36 w-full object-cover" src="{{asset('img/home/imagenDefault.jpeg')}}"
                             alt="">
                         @endif
                         <div class="px-6 py-4">
-                            <h1 class="text-md mb-2 leading-6">
+                            <h1 class="text-md mb-2 leading-6 font-bold text-gray-700">
                                 <a href="{{route('posts.show', $example)}}">
                                     {{Str::limit($example->name ,50)}}
                                 </a>
@@ -160,7 +160,7 @@
                                 @foreach($example->tags as $tag )
                                 <a href="{{route('posts.tag',$tag)}}">
                                     <span
-                                        class="bg-indigo-100 text-indigo-800 text-sm font-semibold mr-2 px-2.5 py-0.5 rounded">
+                                        class="bg-indigo-100 text-indigo-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded border-indigo-400">
                                         {{$tag->name}}
                                     </span>
                                 </a>

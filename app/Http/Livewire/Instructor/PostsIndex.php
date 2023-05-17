@@ -13,12 +13,13 @@ class PostsIndex extends Component
     public function render()
     {
         $posts= Post::where('name', 'LIKE', '%' . $this->search . '%')
-            ->where('user_id',auth()->user()->id)
-            ->latest('id')
-            ->paginate(10);
+                    ->where('user_id',auth()->user()->id)
+                    ->latest('id')
+                    ->paginate(6);
         return view('livewire.instructor.posts-index',compact('posts'));
     }
 
+    
     public function limpiar_page(){
         $this->reset('page');
        }

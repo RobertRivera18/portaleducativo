@@ -14,7 +14,6 @@ class Search extends Component
     }
     public function getResultsProperty(){
         return Post::where('name','LIKE','%'.$this->search.'%')
-        ->where('tipo_recurso_id',1)
-        ->where('status',3)->take(4)->get();
-    }
+            ->where('status',3)->take(5)->get();
+        }
 }

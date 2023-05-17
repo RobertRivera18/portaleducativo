@@ -1,7 +1,7 @@
 <x-app-layout>
-    <section class="bg-stone-500 py-12 mb-12">
+    <section class="bg-slate-400 py-12 mb-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 gap-6 lg:grid-cols-2">
-            <figure class="">
+            <figure>
 
                 @if($app->image)
                 <img class="aspect-[16/9] w-full object-cover object-center rounded-lg" src="{{Storage::url($app->image->url)}}"
@@ -32,7 +32,8 @@
                     @if($app->rating)
                     <i class="fas fa-star text-2xl text-yellow-600"></i>
                     <ul class="flex text-sm  items-center">
-                        <p class="ml-2 mr-2 font-bold text-base">Calificacion de la Herramienta Educativa:
+                        <p class="ml-2 mr-2 font-bold text-base">Calificacion de la Herramienta Educativa:</p>
+
                             <li class="mr-1"><i class="fas fa-star text-{{$app->rating>=1 ? 'yellow': 'gray'}}-400"></i>
                             </li>
                             <li class="mr-1"><i class="fas fa-star text-{{$app->rating>=2 ? 'yellow': 'gray'}}-400"></i>
@@ -43,10 +44,9 @@
                             </li>
                             <li class="mr-1"><i class="fas fa-star text-{{$app->rating==5 ? 'yellow': 'gray'}}-400"></i>
                             </li>
-                        <p class="text-3xl font-bold">{{$app->rating}}</p>
+                        <p class="text-xl font-bold">{{$app->rating}}</p>
                     </ul>
-                    @else
-                    <i class="fas fa-star text-2xl text-gray-600"></i>
+                    
                     @endif
                 </div>
             </div>
@@ -56,16 +56,11 @@
         <div class="order-2 lg:col-span-2 lg:order-1">
             <section class="card bg-white shadow-lg mb-6 rounded-lg">
                 <div class="card-body px-6 py-4">
-                    <h1 class="font-bold text-xl mb-2">Esta App es ideal para?</h1>
+                    <h1 class="font-bold text-xl mb-2">Esta App o recurso es ideal para?</h1>
                     <ul class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-2">
                         @forelse($app->goals as $goal)
                         <li class=" flex text-gray-900">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor" class="w-10 h-10">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z">
-                                </path>
-                            </svg>
+                            <i class="fa fa-flag mr-2"></i>
                             {{$goal->name}}
                         </li>
                         @empty
@@ -78,6 +73,7 @@
            
             <section>
                 <h1 class="text-3xl font-bold">Descripcion</h1>
+                 <hr class="mb-2 border-2 border-gray-600">
                 <div class="text-gray-700 text-base text-justify">
                     {!!$app->body!!}
 
@@ -135,9 +131,9 @@
 
 
             @if($similares)
-            <aside class="hidden lg:block bg-white shadow-lg mb-12 rounded-lg card-body px-6 py-4">
+            <aside class="hidden lg:block  mb-12 ">
                 @foreach($similares as $similar )
-                <article class="flex mb-6">
+                <article class="flex mb-6 bg-white shadow-lg rounded-lg card-body px-6 py-4">
                     <img class="bg-gray-700 h-32 w-40 object-cover" src="{{Storage::url($similar->image->url)}}" alt="">
                     <div class="ml-3">
                         <h1><a class="font-bold text-gray-500 mb-3"

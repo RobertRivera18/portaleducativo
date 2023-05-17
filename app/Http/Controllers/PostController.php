@@ -14,10 +14,9 @@ class PostController extends Controller
     public function index()
     {
         $ultimosposts = Post::where('status', 3)
-            ->where('tipo_recurso_id', 1)
             ->latest('id')->get()->take(4);
 
-        $posts = Post::where('status', 2)->where('tipo_recurso_id', 1)->paginate(5);
+        $posts = Post::where('status', 3)->where('tipo_recurso_id', 1)->paginate(5);
         return view('posts.index', compact('posts', 'ultimosposts'));
     }
     

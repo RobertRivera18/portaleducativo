@@ -25,8 +25,11 @@
         </div>
     </div>
     <p class="text-lg font-semibold mt-6 mb-4">Comentarios</p>
+    
     <ul class="space-y-6">
+       
         @foreach ($this->questions as $question)
+       
         <li wire:key="question-{{ $question->id }}">
             <div class="flex">
               
